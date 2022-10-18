@@ -1,7 +1,7 @@
 require("./fetch-polyfill")
 const express = require("express")
 const asyncHandler = require("express-async-handler")
-const { Loader, Mod, Errors } = require("@cicada-lang/whereabouts")
+const { Loader, Mod, Errors } = require("@cicada-lang/cicada")
 
 const app = express()
 
@@ -11,10 +11,10 @@ app.post(
   "/",
   asyncHandler(async (req, res) => {
     const text = req.body
-    const url = new URL("whereabouts-server://")
+    const url = new URL("cicada-server://")
     const loader = new Loader({})
 
-    loader.fetcher.register("whereabouts-server", (url) => "")
+    loader.fetcher.register("cicada-server", (url) => "")
 
     try {
       const mod = await loader.load(url, { text })
