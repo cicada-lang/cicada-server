@@ -7,30 +7,19 @@ A serverless function that can run [**cicada**](https://github.com/cicada-lang/c
 Run a file:
 
 ```bash
-curl https://cic.run --data-binary @docs/tests/clause-and-effect/01-party-pairs.wa
+curl https://cic.run --data-binary @docs/tests/basic/let.cic
 ```
 
 Run multiline text (bash and zsh):
 
 ```bash
-curl https://wa.cic.run --data-binary @- << END
+curl https://cic.run --data-binary @- << END
 
-Drink { person: "john", alcohol: "martini" }
-Drink { person: "mary", alcohol: "gin" }
-Drink { person: "susan", alcohol: "vodka" }
-Drink { person: "john", alcohol: "gin" }
-Drink { person: "fred", alcohol: "gin" }
-Drink { person: "fred", alcohol: "vodka" }
-
-Friends { left, right, alcohol }
------------------------------------- {
-  Drink { person: left, alcohol }
-  Drink { person: right, alcohol }
+function id(T: Type, x: T): T {
+  return x
 }
 
-query left {
-  Friends { left, right: "mary", alcohol: "gin" }
-}
+compute id(String, "Hello, World!")
 
 END
 ```
