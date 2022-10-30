@@ -7,7 +7,7 @@ A serverless function that can run [**cicada**](https://github.com/cicada-lang/c
 Run a file:
 
 ```bash
-curl https://cic.run --data-binary @tests/basic/let.cic
+curl https://cic.run --data-binary @<file>
 ```
 
 Run multiline text (bash and zsh):
