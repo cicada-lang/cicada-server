@@ -13,7 +13,7 @@ curl https://cic.run --data-binary @<file>
 Run multiline text (bash and zsh):
 
 ```bash
-curl https://cic.run --data-binary @- << END
+curl https://cic.run --data-binary @-<< END
 
 function id(T: Type, x: T): T {
   return x
